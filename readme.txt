@@ -8,7 +8,7 @@ Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-OnSale Page is an extension for Woocommerce which enables you to have real on sale page with paging, sorting and filtering.
+On Sale Page is an extension for Woocommerce which enables you to have real on sale page with paging, sorting and filtering.
 
 == Description ==
 
