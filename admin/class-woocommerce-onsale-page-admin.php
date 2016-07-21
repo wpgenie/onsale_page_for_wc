@@ -71,7 +71,7 @@ class Woocommerce_onsale_page_Admin {
 		$modifsettings = 	array_slice($settings, 0, 2, true) ;
 		array_push($modifsettings,$onsalepageid);			
 	
-		return $modifsettings + array_slice($settings, 2, count($settings)-3, true);
+		return array_merge  ($modifsettings ,array_slice($settings, 2, count($settings), true));
 
 	}
 

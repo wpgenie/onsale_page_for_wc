@@ -8,7 +8,7 @@ Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-On Sale Page is an extension for Woocommerce which enables you to have real on sale page with paging, sorting and filtering.
+OnSale Page is an extension for Woocommerce which enables you to have real on sale page with paging, sorting and filtering.
 
 == Description ==
 
@@ -64,11 +64,21 @@ If you want answer here please send us your questions to info@wpgenie.org
 
 == Changelog ==
 
+= 1.0.2 =
+* Fix: product not showing when Shop Page Display is set to show categories
+* Fix: not showing option Shop Page Display in WooCommerce settings
+
+= 1.0.1 =
+* Fix: notice when on sale page is not set
+
 = 1.0 =
 * Initial release
 
 
 == Upgrade Notice ==
+
+= 1.0.1 =
+Fix: notice when on sale page is not set
 
 = 1.0 =
 Initial realease
