@@ -82,10 +82,10 @@ class Woocommerce_onsale_page_Public {
 
 
 	public function pre_get_posts( $q ) {
-
+		
 		if(!$q->query)
 			return;
-
+		
 		if(wc_get_page_id( 'onsale' ) != -1 ){
 			if( is_page( wc_get_page_id( 'onsale' ) ) ){
 				
@@ -99,7 +99,8 @@ class Woocommerce_onsale_page_Public {
 				$q->is_singular          = false;
 				$q->is_page              = false;
 				$q->is_sale_page         = true;
-			}
+				$q->is_paged             = true; // hack for displaying when Shop Page Display is set to show categories
+				}
 		}	
 	}
 
