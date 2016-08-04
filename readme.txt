@@ -64,6 +64,9 @@ If you want answer here please send us your questions to info@wpgenie.org
 
 == Changelog ==
 
+= 1.0.3 =
+* Add: WPML support
+
 = 1.0.2 =
 * Fix: product not showing when Shop Page Display is set to show categories
 * Fix: not showing option Shop Page Display in WooCommerce settings

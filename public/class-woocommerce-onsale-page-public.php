@@ -85,9 +85,12 @@ class Woocommerce_onsale_page_Public {
 		
 		if(!$q->query)
 			return;
-		
-		if(wc_get_page_id( 'onsale' ) != -1 ){
-			if( is_page( wc_get_page_id( 'onsale' ) ) ){
+		$onsale_page_id = $this->get_main_wpml_id(wc_get_page_id( 'onsale' )); 
+				
+		if($onsale_page_id != -1 ){
+
+
+			if( is_page( $onsale_page_id ) ){
 				
 				$q->set( 'post_type', 'product' );
 				$q->set( 'page', '' );
@@ -120,7 +123,7 @@ class Woocommerce_onsale_page_Public {
 
 		global $wp_query;
 		
-		$onsale_page_id = wc_get_page_id( 'onsale' );
+		$onsale_page_id = $this->get_main_wpml_id(wc_get_page_id( 'onsale' ));
 
 
 		if($wp_query->is_sale_page) {
@@ -141,12 +144,33 @@ class Woocommerce_onsale_page_Public {
 		
 		if($wp_query->is_sale_page) {
 			
-			$onsale_page_id = wc_get_page_id( 'onsale' );						
+			$onsale_page_id = $this->get_main_wpml_id(wc_get_page_id( 'onsale' ));						
 			$crumbs[1] = array(get_the_title( $onsale_page_id ), get_permalink( $onsale_page_id )	);
 		}
 		
 		return $crumbs;
 
-	}	
+	}
+
+	 /**
+     * Get main product id for multilanguage purpose
+     *
+     * @access public
+     * @return int
+     *
+     */
+
+    function get_main_wpml_id($id){
+
+        global $sitepress;
+
+        if (function_exists('icl_object_id')) { // Polylang with use of WPML compatibility mode
+            $id = icl_object_id($id,'page',false);
+        }
+                          
+
+        return $id;
+
+    }	
 
 }
