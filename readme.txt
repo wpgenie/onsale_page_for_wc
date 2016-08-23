@@ -64,6 +64,9 @@ If you want answer here please send us your questions to info@wpgenie.org
 
 == Changelog ==
 
+= 1.0.4 =
+* Fix: Issue with 404 when there is no products on sale
+
 = 1.0.3 =
 * Add: WPML support
 

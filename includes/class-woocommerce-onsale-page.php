@@ -69,7 +69,7 @@ class Woocommerce_onsale_page {
 	public function __construct() {
 
 		$this->plugin_name = 'wc_onsale_page';
-		$this->version = '1.0.3';
+		$this->version = '1.0.4';
 
 		$this->load_dependencies();
 		$this->set_locale();

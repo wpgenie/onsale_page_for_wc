@@ -56,7 +56,8 @@ class Woocommerce_onsale_page_Public {
 	
 
 	public function template_loader( $template ) {		
-		
+
+
 		$find = array( 'woocommerce.php' );
 		$file = '';
 		
@@ -76,6 +77,7 @@ class Woocommerce_onsale_page_Public {
 				$template = WC()->plugin_path() . '/templates/' . $file;
 			}
 		}
+		
 
 		return $template;
 	}
@@ -102,7 +104,10 @@ class Woocommerce_onsale_page_Public {
 				$q->is_singular          = false;
 				$q->is_page              = false;
 				$q->is_sale_page         = true;
-				$q->is_paged             = true; // hack for displaying when Shop Page Display is set to show categories
+				
+				add_filter( 'woocommerce_is_filtered' , array($this, 'add_is_filtered'), 99); // hack for displaying when Shop Page Display is set to show categories
+
+
 				}
 		}	
 	}
@@ -116,6 +121,7 @@ class Woocommerce_onsale_page_Public {
 			$product_ids_on_sale = wc_get_product_ids_on_sale();
 			$meta_query = WC()->query->get_meta_query();
 			$q->set( 'post__in', array_merge( array( 0 ), $product_ids_on_sale ) );
+
 		}
 	}
 
@@ -170,6 +176,20 @@ class Woocommerce_onsale_page_Public {
                           
 
         return $id;
+
+    }	
+
+    /**
+     * Set is filtered is true to skip displaying categories only on page
+     *
+     * @access public
+     * @return bolean
+     *
+     */
+
+    function add_is_filtered($id){
+
+        return true;
 
     }	
 
