@@ -193,4 +193,23 @@ class Woocommerce_onsale_page_Public {
 
     }	
 
+    
+    /**
+     * Change title for onsale page
+     
+     */
+    function change_page_title( $title ) {
+				
+				    global $wp_query;
+
+				    if (!is_woocommerce() OR !$wp_query->is_sale_page) {
+					return $title;
+						}
+
+					
+					$title = get_the_title($this->get_main_wpml_id(wc_get_page_id( 'onsale' )));
+				 
+				    return $title;
+			}
+
 }

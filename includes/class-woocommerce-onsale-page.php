@@ -69,7 +69,7 @@ class Woocommerce_onsale_page {
 	public function __construct() {
 
 		$this->plugin_name = 'wc_onsale_page';
-		$this->version = '1.0.4';
+		$this->version = '1.0.5';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -180,6 +180,7 @@ class Woocommerce_onsale_page {
 		$this->loader->add_filter( 'woocommerce_page_title', $plugin_public, 'woocommerce_page_title',1 );
 
 		$this->loader->add_filter( 'woocommerce_get_breadcrumb', $plugin_public, 'woocommerce_get_breadcrumb',1,2 );
+		$this->loader->add_filter( 'pre_get_document_title', $plugin_public, 'change_page_title',10 );
 	}
 
 	/**
