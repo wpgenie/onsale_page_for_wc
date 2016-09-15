@@ -69,7 +69,7 @@ class Woocommerce_onsale_page {
 	public function __construct() {
 
 		$this->plugin_name = 'wc_onsale_page';
-		$this->version = '1.0.5';
+		$this->version = '1.0.6';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -181,6 +181,12 @@ class Woocommerce_onsale_page {
 
 		$this->loader->add_filter( 'woocommerce_get_breadcrumb', $plugin_public, 'woocommerce_get_breadcrumb',1,2 );
 		$this->loader->add_filter( 'pre_get_document_title', $plugin_public, 'change_page_title',10 );
+
+		$this->loader->add_filter( 'wp_nav_menu_objects', $plugin_public, 'nav_menu_item_classes',10 );
+
+		$this->loader->add_filter( 'icl_ls_languages', $plugin_public, 'translate_ls_onsale_url',99 );
+
+		
 	}
 
 	/**
@@ -222,5 +228,6 @@ class Woocommerce_onsale_page {
 	public function get_version() {
 		return $this->version;
 	}
+
 
 }

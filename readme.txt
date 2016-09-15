@@ -64,6 +64,9 @@ If you want answer here please send us your questions to info@wpgenie.org
 
 == Changelog ==
 
+= 1.0.6 =
+* Fix: Issue with current item in menu
+
 = 1.0.5 =
 * Fix: Issue with page title on sale page
 

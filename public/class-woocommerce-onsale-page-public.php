@@ -212,4 +212,83 @@ class Woocommerce_onsale_page_Public {
 				    return $title;
 			}
 
+	
+	/**
+	 *
+     * Fix active class in nav for auction  page.
+	 *
+	 * @param array $menu_items
+	 * @return array
+                 *
+	 */
+	function nav_menu_item_classes($menu_items) {
+
+		global $wp_query;
+		
+		if (!is_woocommerce() OR !$wp_query->is_sale_page) {
+			return $menu_items;
+		}
+
+		$onsale_page = (int) $this->get_main_wpml_id(wc_get_page_id( 'onsale' ));
+		
+		foreach ((array) $menu_items as $key => $menu_item) {
+
+			$classes = (array) $menu_item->classes;
+
+			// Unset active class for blog page
+
+			$menu_items[$key]->current = false;
+
+			if (in_array('current_page_parent', $classes)) {
+				unset($classes[array_search('current_page_parent', $classes)]);
+			}
+
+			if (in_array('current-menu-item', $classes)) {
+				unset($classes[array_search('current-menu-item', $classes)]);
+			}
+
+			// Set active state if this is the shop page link
+			if ($onsale_page == $menu_item->object_id && 'page' === $menu_item->object) {
+				$menu_items[$key]->current = true;
+				$classes[] = 'current-menu-item';
+				$classes[] = 'current_page_item';
+
+			}
+
+			$menu_items[$key]->classes = array_unique($classes);
+
+		}
+
+		return $menu_items;
+	}
+
+	 /**
+     * Translate onsale page url
+     */
+    function translate_ls_onsale_url($languages, $debug_mode = false) {
+        global $sitepress;
+        global $wp_query;
+		
+		
+
+		$onsale_page = (int) wc_get_page_id( 'onsale' );
+        
+
+        foreach ($languages as $language) {
+            // shop page
+            // obsolete?
+            if ($wp_query->is_sale_page || $debug_mode ) {
+
+               
+                    $sitepress->switch_lang($language['language_code']);
+                    $url = get_permalink( apply_filters( 'translate_object_id', $onsale_page, 'page', true, $language['language_code']) );
+                    $sitepress->switch_lang();
+	                $languages[$language['language_code']]['url'] = $url;
+
+            }
+        }
+
+        return $languages;
+    }		
+
 }
