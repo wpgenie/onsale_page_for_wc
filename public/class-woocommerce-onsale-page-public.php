@@ -289,6 +289,17 @@ class Woocommerce_onsale_page_Public {
         }
 
         return $languages;
-    }		
+    }
+
+
+	/**
+	 * Register Widgets.
+	 *
+	 * @since 
+	 */
+	function wc_register_widgets() {
+		register_widget( 'WC_Onsale_Page_Widget_Layered_Nav' );
+	}
+
 
 }

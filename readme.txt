@@ -63,6 +63,8 @@ If you want answer here please send us your questions to info@wpgenie.org
 
 
 == Changelog ==
+= 1.0.7 =
+* Add: WooCommerce OnSale Page Layered Nav Widget
 
 = 1.0.6 =
 * Fix: Issue with current item in menu

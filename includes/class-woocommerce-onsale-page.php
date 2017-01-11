@@ -69,7 +69,7 @@ class Woocommerce_onsale_page {
 	public function __construct() {
 
 		$this->plugin_name = 'wc_onsale_page';
-		$this->version = '1.0.6';
+		$this->version = '1.0.7';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -118,6 +118,8 @@ class Woocommerce_onsale_page {
 		 * side of the site.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-woocommerce-onsale-page-public.php';
+
+		include_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-wc-onsale-page-widget-layered-nav.php';
 
 
 		if( !class_exists('Wpgenie_Dashboard')){
@@ -185,6 +187,10 @@ class Woocommerce_onsale_page {
 		$this->loader->add_filter( 'wp_nav_menu_objects', $plugin_public, 'nav_menu_item_classes',10 );
 
 		$this->loader->add_filter( 'icl_ls_languages', $plugin_public, 'translate_ls_onsale_url',99 );
+
+		$this->loader->add_filter( 'widgets_init', $plugin_public, 'wc_register_widgets');
+
+		
 
 		
 	}
