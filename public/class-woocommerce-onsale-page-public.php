@@ -166,7 +166,7 @@ class Woocommerce_onsale_page_Public {
      *
      */
 
-    function get_main_wpml_id($id){
+    public static function get_main_wpml_id($id){
 
         global $sitepress;
 
