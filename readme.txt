@@ -4,7 +4,7 @@ Donate link: http://wpgenie.org/
 Tags: wordpress onsale page, OnSale Page for WooCommerce, simple wordpress onsale page, onsale page, onsale page plugin, wordpress onsale page plugin, OnSale Page for WooCommerce plugin, simple onsale page, wpgenie onsale page, wpgenie
 Requires at least: 4.0
 Tested up to: 4.5
-Stable tag: 1.0
+Stable tag: 1.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -63,6 +63,12 @@ If you want answer here please send us your questions to info@wpgenie.org
 
 
 == Changelog ==
+= 1.0.9 =
+* Add: Yoast SEO compatibility
+
+= 1.0.8 =
+* Add: is_woocommerce_sale_page()
+
 = 1.0.7 =
 * Add: WooCommerce OnSale Page Layered Nav Widget
 

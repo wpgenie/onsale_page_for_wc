@@ -107,6 +107,13 @@ class Woocommerce_onsale_page_Public {
 				
 				add_filter( 'woocommerce_is_filtered' , array($this, 'add_is_filtered'), 99); // hack for displaying when Shop Page Display is set to show categories
 
+				// Fix WP SEO
+					if ( class_exists( 'WPSEO_Meta' ) ) {
+							add_filter( 'wpseo_metadesc', array( $this, 'wpseo_metadesc' ) );
+							add_filter( 'wpseo_metakey', array( $this, 'wpseo_metakey' ) );
+							add_filter( 'wpseo_title', array( $this, 'wpseo_title' ) );
+					}
+
 
 				}
 		}	
@@ -302,4 +309,54 @@ class Woocommerce_onsale_page_Public {
 	}
 
 
+	/**
+	 * WP SEO meta description.
+	 *
+	 * Hooked into wpseo_ hook already, so no need for function_exist.
+	 *
+	 * @access public
+	 * @return string
+	 */
+	public function wpseo_metadesc() {
+		return WPSEO_Meta::get_value( 'metadesc', wc_get_page_id( 'onsale' ) );
+	}
+
+	/**
+	 * WP SEO meta key.
+	 *
+	 * Hooked into wpseo_ hook already, so no need for function_exist.
+	 *
+	 * @access public
+	 * @return string
+	 */
+	public function wpseo_metakey() {
+		return WPSEO_Meta::get_value( 'metakey', wc_get_page_id( 'onsale' ) );
+	}
+
+	/**
+	 * WP SEO title.
+	 *
+	 * Hooked into wpseo_ hook already, so no need for function_exist.
+	 *
+	 * @access public
+	 * @return string
+	 */
+	public function wpseo_title() {
+		return WPSEO_Meta::get_value( 'title', wc_get_page_id( 'onsale' ) );
+	}
+
+
 }
+
+if ( ! function_exists( 'is_woocommerce_sale_page' ) ) :
+function is_woocommerce_sale_page(){
+	global $wp_query;
+ 
+    if ( ! isset( $wp_query ) ) {
+        _doing_it_wrong( __FUNCTION__, __( 'Conditional query tags do not work before the query is run. Before then, they always return false.' ), '3.1.0' );
+        return false;
+    }
+ 
+    return $wp_query->is_sale_page;
+}
+endif; 

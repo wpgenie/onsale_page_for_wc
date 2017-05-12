@@ -16,7 +16,7 @@
  * Plugin Name:       Woocommerce Onsale Page
  * Plugin URI:        http://wpgenie.org/plugin-name-uri/
  * Description:       WooCommerce Onsale Page is an extension for Woocommerce. We developed this plugin because Woocommerce has onsale widget and shortcode but it lacks paging, sorting and filtering which you can usually find on regular Woocommerce catalog page.
- * Version:           1.0.7
+ * Version:           1.0.9
  * Author:            wpgenie
  * Author URI:        http://wpgenie.org/
  * License:           GPL-2.0+
