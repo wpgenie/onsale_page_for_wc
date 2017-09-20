@@ -23,6 +23,9 @@
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       wc_onsale_page
  * Domain Path:       /languages
+ *
+ * WC requires at least: 2.6.0
+ * WC tested up to: 3.2.0
  */
 
 // If this file is called directly, abort.
