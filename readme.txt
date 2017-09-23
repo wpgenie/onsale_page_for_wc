@@ -63,6 +63,9 @@ If you want answer here please send us your questions to info@wpgenie.org
 
 
 == Changelog ==
+= 1.0.10 =
+* Add: wc_onsale_page_product_ids_on_sale fillter
+
 = 1.0.9 =
 * Add: Yoast SEO compatibility
 

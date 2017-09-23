@@ -125,7 +125,7 @@ class Woocommerce_onsale_page_Public {
 
 		if($wp_query->is_sale_page) {
 
-			$product_ids_on_sale = wc_get_product_ids_on_sale();
+			$product_ids_on_sale = apply_filters( 'wc_onsale_page_product_ids_on_sale', wc_get_product_ids_on_sale() );
 			$meta_query = WC()->query->get_meta_query();
 			$q->set( 'post__in', array_merge( array( 0 ), $product_ids_on_sale ) );
 
